@@ -9,7 +9,7 @@ import MarketData
 
 public enum UseCaseProvider {
 
-    static func makeProductUseCase() -> ProductUseCase {
+    public static func makeProductUseCase() -> ProductUseCase {
         let networkManager: INetworkManager = NetworkManager()
         let remoteDataSource: IProductRemoteDataSource = ProductRemoteDataSource(networkManager: networkManager)
         let productRepository: IProductRepository = ProductRepository(remoteDataSource: remoteDataSource)
