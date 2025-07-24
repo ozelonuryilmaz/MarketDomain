@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "marketdata",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ozelonuryilmaz/MarketData",
+      "state" : {
+        "revision" : "171f105088de8d0d267647346f42836c2bcd8726",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
