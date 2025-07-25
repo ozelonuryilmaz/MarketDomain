@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "MarketDomain", targets: ["MarketDomain"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ozelonuryilmaz/MarketData", from: "1.0.6")
+        .package(url: "https://github.com/ozelonuryilmaz/MarketData", from: "1.0.7")
     ],
     targets: [
         .target(
