@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ozelonuryilmaz/MarketData",
       "state" : {
-        "revision" : "9956f097a093b13f7c01c8e5535a3113a33624db",
-        "version" : "1.1.0"
+        "revision" : "fa4c4e18176921e56768267872a8de238f7b148f",
+        "version" : "1.1.1"
       }
     }
   ],
