@@ -11,7 +11,9 @@ import MarketData
 public enum CartUseCaseProvider {
     
     public static func makeCartUseCase() -> ICartUseCase {
-        let localDataSource: ICartLocalDataSource = CartLocalDataSource()
+        let coreDataHelper = CoreDataHelper()
+        let managedContext = coreDataHelper.getManagedContextWithMergePolicy()
+        let localDataSource: ICartLocalDataSource = CartLocalDataSource(managedContext: managedContext)
         let cartRepository: ICartRepository = CartRepository(localDataSource: localDataSource)
         return CartUseCase(cartRepository: cartRepository)
     }

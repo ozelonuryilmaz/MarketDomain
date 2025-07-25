@@ -10,8 +10,8 @@ import Combine
 import MarketData
 
 public protocol ICartUseCase {
-    func addToCart(_ item: CartEntity) -> AnyPublisher<Void, Error>
-    func getCartItems() -> AnyPublisher<[CartEntity], Error>
+    func addToCart(_ item: CartEntity) -> Bool
+    func getCartItems() -> [CartEntity]
 }
 
 public final class CartUseCase: ICartUseCase {
@@ -21,18 +21,14 @@ public final class CartUseCase: ICartUseCase {
         self.cartRepository = cartRepository
     }
 
-    public func addToCart(_ item: CartEntity) -> AnyPublisher<Void, Error> {
+    public func addToCart(_ item: CartEntity) -> Bool {
         let dto = ProductCartDTO(id: item.id, name: item.name, quantity: item.quantity, price: item.price)
         return cartRepository.saveCartItem(dto)
     }
 
-    public func getCartItems() -> AnyPublisher<[CartEntity], Error> {
-        return cartRepository.fetchCartItems()
-            .map { dtos in
-                dtos.map { dto in
-                    CartEntity(id: dto.id, name: dto.name, quantity: dto.quantity, price: dto.price)
-                }
-            }
-            .eraseToAnyPublisher()
+    public func getCartItems() -> [CartEntity] {
+        return cartRepository.fetchCartItems().map { dto in
+            return CartEntity(id: dto.id, name: dto.name, quantity: dto.quantity, price: dto.price)
+        }
     }
 }
